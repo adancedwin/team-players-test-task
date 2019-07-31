@@ -37,15 +37,19 @@ To do so you need to call `achieved_result_in_last_matches?` - specifying result
 ```ruby
 @player.achieved_result_in_last_matches?(result, matches = 5)
 ```
+We get a boolean returned.
+
 
 ### 3. Get Top 5 players that achieved a specific result the most often, in one team.
 Here you use a class method `top_by_result_one_team` - where you pass a team object, result (string) and optionally quantity of players:
 ```ruby
 PlayerResult.top_by_result_one_team(team, result, players_amount = 5)
 ```
+We get players' objects returned.
 
 ### 4. Get Top 5 players that achieved a specific result the most often, among all teams.
-Again, a class method `top_by_result_one_team` - where you pass result (string) and optionally quantity of players:
+Again, a class method, this time call `top_by_result_all_teams` - where you pass result (string) and optionally quantity of players:
 ```ruby
 PlayerResult.top_by_result_all_teams(result, players_amount = 5)
 ```
+We get players' objects returned.
