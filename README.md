@@ -33,7 +33,7 @@ Which we use to initialize a result object to later save it.
 
 ### 2. Write a method that answers to a question - did a player achieve a specific result in the last 5 matches for a team? Just Yes or No.
 
-To do so you need to call `achieved_result_in_last_matches?` - specifying result (string) and optionally quantity of matches:
+To do so you need to call `achieved_result_in_last_matches?` on an instance of Player - specifying result (string) and optionally quantity of matches:
 ```ruby
 @player.achieved_result_in_last_matches?(result, matches = 5)
 ```
