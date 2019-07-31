@@ -7,7 +7,7 @@ Players may get some sort of achievements done (we'll call it results) while pla
 
 We need to create Rails models that describe it and enable some features to be used along.
 
-### Here is a quick set of things that had to be done:
+### Here is a quick set of things that we need to be able to do:
 1. Record a result for a player to our database;
 2. Write a method that answers to a question - did a player achieve a specific result in the last 5 matches for a team? Just Yes or No.
 3. Get Top 5 players that achieved a specific result the most often, in one team.
