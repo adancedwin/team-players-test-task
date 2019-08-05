@@ -15,6 +15,6 @@ class ResultController < ApplicationController
   private
 
   def player_result_params
-    params.require(:player_result).permit(:some, :fields)
+    params.require(:player_result).permit(:id, :name, :match_id, :player_id)
   end
 end
