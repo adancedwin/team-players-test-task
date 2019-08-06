@@ -62,7 +62,7 @@ We get a boolean value returned.
 ### 3. Get Top 5 players that achieved a specific result the most often, in one team.
 Here you use a class method `top_by_result_one_team` - where you pass a team object, result (string) and optionally quantity of players:
 ```ruby
-PlayerResult.top_by_result_one_team(Team.first, 'run_ten_km', 6) # second argument - players_amount is optional, by default it's 5
+PlayerResult.top_by_result_one_team(Team.first, 'run_ten_km', 6) # third argument - players_amount is optional, by default it's 5
 ```
 We get players' objects returned.
 
