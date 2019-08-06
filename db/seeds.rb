@@ -40,12 +40,19 @@ end
   )
 end
 
-8.times do
+8.times { Match.create(name: Faker::Sports::Football.competition) }
+
+matches_ids = Match.all.map(&:id)
+
+8.times do |num|
   two_teams_ids = team_ids.sample(2)
-  Match.create(
-    name: Faker::Sports::Football.competition,
-    first_team_id: two_teams_ids.first,
-    second_team_id: two_teams_ids.last
+  TeamMatch.create(
+    match_id: matches_ids[num],
+    team_id: two_teams_ids.first
+  )
+  TeamMatch.create(
+    match_id: matches_ids[num],
+    team_id: two_teams_ids.last
   )
 end
 

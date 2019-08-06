@@ -10,19 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_01_203714) do
+ActiveRecord::Schema.define(version: 2019_08_05_211409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "matches", force: :cascade do |t|
     t.string "name"
-    t.bigint "first_team_id"
-    t.bigint "second_team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["first_team_id"], name: "index_matches_on_first_team_id"
-    t.index ["second_team_id"], name: "index_matches_on_second_team_id"
   end
 
   create_table "player_results", force: :cascade do |t|
@@ -42,15 +38,22 @@ ActiveRecord::Schema.define(version: 2019_08_01_203714) do
     t.index ["team_id"], name: "index_players_on_team_id"
   end
 
+  create_table "team_matches", force: :cascade do |t|
+    t.bigint "match_id"
+    t.bigint "team_id"
+    t.index ["match_id"], name: "index_team_matches_on_match_id"
+    t.index ["team_id"], name: "index_team_matches_on_team_id"
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "matches", "teams", column: "first_team_id"
-  add_foreign_key "matches", "teams", column: "second_team_id"
   add_foreign_key "player_results", "matches"
   add_foreign_key "player_results", "players"
   add_foreign_key "players", "teams"
+  add_foreign_key "team_matches", "matches"
+  add_foreign_key "team_matches", "teams"
 end
